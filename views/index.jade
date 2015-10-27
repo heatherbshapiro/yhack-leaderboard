@@ -1,5 +1,22 @@
 extends layout
 
+
 block content
   h1= title
-  p Welcome to #{title}
+  p Check out who has been dancing their way to the top!!
+block tab
+  table(border='1' )
+    thead
+        tr
+            th #
+            th First Name
+            th Last Name
+            th Score
+    tbody
+        each item, i in data
+            tr
+                td= i+1
+                td= item.firstName
+                td= item.lastName
+                td= item.score
+                
