@@ -2,30 +2,38 @@ extends layout
 
 block content
   div.top
-    h1=title
-    p  Check out who has been dancing their way to the top!!
-
-    // form.form-horizontal(method="post", id="loginForm")
-    //   label Username
-    //   input.span3(id="username", type="text", name="User", placeholder="Enter your username")
-    //   label Password
-    //   input.span3(id="password", type="password", name="Password")
-    //   input.btn(type="submit", value="Log In")
-  div.container
-    div.content
-      table.table.table-striped
-        thead
-            tr
-                th #
-                th First Name
-                th Last Name
-                th Score
-        tbody
-            each item, i in data
-                tr
-                    td= i+1
-                    td= item.firstName
-                    td= item.lastName
-                    td= item.score
-        
-  div.footer
+    
+  
+  div.carousel.slide(id="myCarousel",data-ride="carousel")
+    // ol.carousel-indicators
+    //     li.carousel(data-target="#myCarousel",data-slide-to="0", class="active")
+    //     li.carousel(data-target="#myCarousel",data-slide-to="1", class="")
+    //     li.carousel(data-target="#myCarousel",data-slide-to="2", class="")
+    div.carousel-inner(role="listbox")
+        div(class="item active")
+          h1=title
+          table.table.table-striped
+                    thead
+                        tr
+                            th #
+                            th First Name
+                            th Last Name
+                            th Score
+                    tbody
+                        each item, i in data
+                            tr
+                                td= i+1
+                                td= item.firstName
+                                td= item.lastName
+                                td= item.score                            
+         div(class="item")
+            h1 Come Dance with us!
+            img(src="https://media.giphy.com/media/4ci8d3rJNrdAY/giphy.gif", style="height:100%")
+         div(class="item")
+            img(src="https://microsoft-my.sharepoint.com/personal/hshapiro_microsoft_com/Documents/apis.PNG?web=1", style="height:100%")
+    a.left.carousel-control(class="left carousel-control", href="#myCarousel", data-slide="prev")
+        //  span(class="glyphicon glyphicon-chevron-left", aria-hidden="true")
+        //  span(class="sr-only")
+    a.right.carousel-control(class="right carousel-control", href="#myCarousel", data-slide="next")
+        //  span(class="glyphicon glyphicon-chevron-right", aria-hidden="true")
+        //  span(class="sr-only")     

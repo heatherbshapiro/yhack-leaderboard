@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var WindowsAzure= require('azure');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -76,7 +75,7 @@ module.exports = app;
 //     var user = {
 //         firstName: 'Heather',
 //         lastName: 'Shapiro',
-//         score: 30
+//         score: 30,
 //     };
 
 //     var userString = JSON.stringify(user);

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.top
+  h1 Enter the Kinect Tournament Score
+  form.form-horizontal(method="post", id="loginForm")
+      label First Name
+      input.span3(id="firstname", type="text", name="FirstName", placeholder="Enter the First Name")
+      label Last Name
+      input.span3(id="LastName", type="text", name="LastName", placeholder="Enter the Last Name")
+      label Score
+      input.span3(id="score", type="score", name="Score", placeholder="Enter the Score")
+      input.btn(type="submit", value="Submit")
