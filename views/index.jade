@@ -12,20 +12,21 @@ block content
     div.carousel-inner(role="listbox")
         div(class="item active")
           h1=title
-          table.table.table-striped
-                    thead
-                        tr
-                            th #
-                            th First Name
-                            th Last Name
-                            th Score
-                    tbody
-                        each item, i in data
+          table.table-responsive
+            table.table.table-striped
+                        thead
                             tr
-                                td= i+1
-                                td= item.firstName
-                                td= item.lastName
-                                td= item.score                            
+                                th #
+                                th First Name
+                                th Last Name
+                                th Score
+                        tbody
+                            each item, i in data
+                                tr
+                                    td= i+1
+                                    td= item.firstName
+                                    td= item.lastName
+                                    td= item.score                            
          div(class="item")
             h1 Come Dance with us!
             img(src="https://media.giphy.com/media/4ci8d3rJNrdAY/giphy.gif", style="height:100%")
