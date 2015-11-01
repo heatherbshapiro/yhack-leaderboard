@@ -36,8 +36,6 @@ router.post('/scores', function (req, res) {
 
 module.exports = router;
 
-
-
 function postData(firstname, lastname, Score) {
 
     var user = {
