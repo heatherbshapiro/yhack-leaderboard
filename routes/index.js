@@ -6,6 +6,7 @@ var config = require('../config');
 var https = require('https');
 var express = require('express');
 var bodyParser = require('body-parser');
+
 var url = "https://leaderboarddance.azure-mobile.net/tables/scores";
 
 var app = express();
@@ -17,9 +18,13 @@ function SortByName(x,y) {
       return ((x[sortColumnName]  == y[sortColumnName]) ? 0 : ((x[sortColumnName]< y[sortColumnName]) ? 1 : -1 ));
 }
 
+function comparator(a, b) {
+    return (parseInt(b["score"], 10)) - (parseInt(a["score"], 10));
+}
+
 router.get('/', function(req, res, next) {
   request(url,function(error,response,body){
-    res.render('index', { title: 'Kinect Tournament Leaderboard', data:JSON.parse(body).sort(SortByName).slice(1,6)});
+    res.render('index', { title: 'Kinect Tournament Leaderboard', data:JSON.parse(body).sort(comparator).slice(0,5)});
   });
 });
 
@@ -78,6 +83,7 @@ function postData(firstname, lastname, Score) {
     req.on('error', function (e) {
         // TODO: handle error.
     });
+
     req.write(userString);
     req.end();
 }
