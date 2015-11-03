@@ -21,7 +21,6 @@ function SortByName(x,y) {
 router.get('/', function(req, res, next) {
   request(url,function(error,response,body){
     res.render('index', { title: 'Kinect Tournament Leaderboard', data:JSON.parse(body).sort(SortByName).slice(1,6)});
-    // res.render('index', { title: 'Kinect Tournament LeaderBoard', data: {firstName: "Heather", lastName: "Shapiro", score: "20"}});
   });
 });
 
