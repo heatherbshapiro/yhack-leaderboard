@@ -79,7 +79,6 @@ function postData(firstname, lastname, Score) {
     req.on('error', function (e) {
         // TODO: handle error.
     });
-
     req.write(userString);
     req.end();
 }
