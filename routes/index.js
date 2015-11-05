@@ -24,7 +24,7 @@ function comparator(a, b) {
 
 router.get('/', function(req, res, next) {
   request(url,function(error,response,body){
-    res.render('index', { title: 'Kinect Tournament Leaderboard', data:JSON.parse(body).sort(comparator).slice(0,5)});
+    res.render('index', { title: 'Microsoft Kinect Dance-Off', data:JSON.parse(body).sort(comparator).slice(0,5)});
   });
 });
 
