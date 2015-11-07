@@ -7,7 +7,7 @@ var https = require('https');
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var url = "https://leaderboarddance.azure-mobile.net/tables/scores";
+var url = "https://leaderboarddance.azure-mobile.net/tables/scores?$orderby=numbers%20desc&$top=10";
 
 var app = express();
 app.use(bodyParser.json());
@@ -19,7 +19,8 @@ function SortByName(x,y) {
 }
 
 function comparator(a, b) {
-    return (parseInt(b["score"], 10)) - (parseInt(a["score"], 10));
+    return (parseInt(b["numbers"], 10)) - (parseInt(a["numbers"], 10));
+    // return parseFloat(b.score) - parseFloat(a.score);
 }
 
 router.get('/', function(req, res, next) {
@@ -34,7 +35,7 @@ router.get('/scores', function(req, res, next) {
 });
 
 router.post('/scores', function (req, res) {
-    res.render('scores', postData(req.body.FirstName, req.body.LastName, req.body.Score));
+    res.render('scores', postData(req.body.FirstName, req.body.LastName, req.body.Score, req.body.numbers));
 });
 
 module.exports = router;
@@ -45,6 +46,7 @@ function postData(firstname, lastname, Score) {
         firstName: firstname,
         lastName: lastname,
         score: Score,
+        numbers: Score
     };
 
     var userString = JSON.stringify(user);
