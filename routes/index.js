@@ -7,7 +7,7 @@ var https = require('https');
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var url = "https://leaderboarddance.azure-mobile.net/tables/scores?$orderby=numbers%20desc&$top=10";
+var url = "https://leaderboarddance.azure-mobile.net/tables/scores?$orderby=numbers2%20desc&$top=10";
 
 var app = express();
 app.use(bodyParser.json());
