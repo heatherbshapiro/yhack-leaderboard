@@ -35,7 +35,7 @@ router.get('/scores', function(req, res, next) {
 });
 
 router.post('/scores', function (req, res) {
-    res.render('scores', postData(req.body.FirstName, req.body.LastName, req.body.Score, req.body.numbers));
+    res.render('scores', postData(req.body.FirstName, req.body.LastName, req.body.Score, req.body.numbers, req.body.numbers2));
 });
 
 module.exports = router;
@@ -46,7 +46,8 @@ function postData(firstname, lastname, Score) {
         firstName: firstname,
         lastName: lastname,
         score: Score,
-        numbers: Score
+        numbers: Score,
+        numbers2: Score
     };
 
     var userString = JSON.stringify(user);
