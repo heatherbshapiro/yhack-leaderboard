@@ -19,7 +19,7 @@ function SortByName(x,y) {
 }
 
 function comparator(a, b) {
-    return (parseInt(b["numbers"], 10)) - (parseInt(a["numbers"], 10));
+    return (parseInt(b["numbers2"], 10)) - (parseInt(a["numbers2"], 10));
     // return parseFloat(b.score) - parseFloat(a.score);
 }
 
